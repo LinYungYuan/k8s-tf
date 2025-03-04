@@ -1,5 +1,4 @@
 # k8s-tf
-k8s
 1.首先，確認您正在使用正確的 Kubernetes 上下文：
 kubectl config current-context
 
