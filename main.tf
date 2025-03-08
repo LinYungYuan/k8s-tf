@@ -66,9 +66,13 @@ resource "kubernetes_namespace" "namespace" {
 #   }
 # }
 
-# module "nginx-app" {
-#   source = "./modules/image"
-#   app_name = "nginx"
-#   image  = "nginx:1.14.2"
-#   namespace_name = kubernetes_namespace.namespace["frontend"].metadata[0].name
-# }
+module "nginx-app" {
+  source         = "./modules/image"
+  app_name       = "nginx"
+  image          = "nginx:1.14.2"
+  namespace_name = kubernetes_namespace.namespace["frontend"].metadata[0].name
+}
+
+output "ip" {
+  value = module.nginx-app.svc_ip
+}

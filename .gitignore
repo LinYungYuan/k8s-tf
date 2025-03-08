@@ -1,1 +1,4 @@
 kubeconfig.yaml
+terraform.tf*
+.terraform.*
+.terraform/*

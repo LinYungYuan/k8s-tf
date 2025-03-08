@@ -1,3 +1,3 @@
-output "ip" {
-  value =kubernetes_service_v1.service.status.0.load_balancer.0.ingress.0.ip
+output "svc_ip" {
+  value = kubernetes_service_v1.service.spec[0].cluster_ip
 }
