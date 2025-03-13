@@ -1,5 +1,6 @@
 
 # resource "kubernetes_deployment_v1" "nginx" {
+#   provider = kubernetes
 #   metadata {
 #     name      = "nginx"
 #     namespace = kubernetes_namespace.test["frontend"].metadata[0].namespace

@@ -1,20 +1,11 @@
-terraform {
-  required_providers {
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.0"
-    }
-  }
-}
-provider "kubernetes" {
-  config_path = "./kubeconfig.yaml"
-}
+
 
 locals {
   name = ["frontend", "backend"]
 }
 
 resource "kubernetes_namespace" "namespace" {
+  provider = kubernetes
   for_each = toset(local.name)
   metadata {
     name = each.value
